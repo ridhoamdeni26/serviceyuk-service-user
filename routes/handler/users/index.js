@@ -5,6 +5,7 @@ const update = require("./update");
 const updatePassword = require("./updatePassword");
 const getUsers = require("./getUsers");
 const logout = require("./logout");
+const confirmEmail = require("./confirmEmail");
 
 module.exports = {
   register,
@@ -14,4 +15,5 @@ module.exports = {
   updatePassword,
   getUsers,
   logout,
+  confirmEmail,
 };

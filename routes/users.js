@@ -10,5 +10,6 @@ router.put("/updateImages", userHandler.updateImages);
 router.put("/updateUser/:uuid", userHandler.update);
 router.put("/updateUserPassword/:uuid", userHandler.updatePassword);
 router.get("/get-users", userHandler.getUsers);
+router.get("/confirm/:confirmationCode", userHandler.confirmEmail);
 
 module.exports = router;
