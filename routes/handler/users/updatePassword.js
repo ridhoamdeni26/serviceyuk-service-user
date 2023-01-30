@@ -66,7 +66,10 @@ module.exports = async (req, res) => {
           },
         });
       } else {
-        return res.status(401).json({ msg: "Invalid old Password" });
+        return res.status(400).json({
+          status: "error",
+          message: "Invalid old Password",
+        });
       }
     });
   } catch (err) {

@@ -1,4 +1,3 @@
-const bcrypt = require("bcryptjs");
 const { User } = require("../../../models");
 const Validator = require("fastest-validator");
 const v = new Validator();
@@ -8,9 +7,9 @@ const moment = require("moment");
 module.exports = async (req, res) => {
   try {
     const schema = {
-      username: "string|empty:true|min:3|max:20",
-      email: "email|empty:true",
-      phone: "string|max:12|min:3|empty:true",
+      username: "string|optional:true|min:3|max:20",
+      email: "email|optional:true",
+      phone: "string|max:12|min:3|optional:true",
       sex: "string|optional",
     };
 

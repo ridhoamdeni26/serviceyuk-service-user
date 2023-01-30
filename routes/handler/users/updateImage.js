@@ -4,12 +4,26 @@ const isBase64 = require("is-base64");
 const base64Img = require("base64-img");
 const { MYHOSTNAME } = process.env;
 const fs = require("fs");
+const Validator = require("fastest-validator");
+const v = new Validator();
 
 module.exports = async (req, res) => {
   try {
-    // * Params
-    const image = req.body.image;
+    const schema = {
+      id: "string|empty:false|min:6|max:255",
+    };
+
+    const validate = v.validate(req.body, schema);
+
+    if (validate.length) {
+      return res.status(400).json({
+        status: "error",
+        message: validate,
+      });
+    }
+
     const id = req.body.id;
+    const image = req.body.image;
 
     //* Check base64
     if (!isBase64(image, { mimeRequired: true })) {
@@ -21,7 +35,7 @@ module.exports = async (req, res) => {
 
     // * Check User
     const user = await User.findOne({
-      where: { id: req.body.id },
+      where: { id: id },
     });
     if (!user) {
       return res.status(404).json({
