@@ -1,3 +1,5 @@
+const AddressUser = require("../models/AddressUser");
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",

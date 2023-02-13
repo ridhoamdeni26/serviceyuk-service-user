@@ -44,4 +44,30 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.User = require("./User")(sequelize, Sequelize);
+db.AddressUser = require("./AddressUser")(sequelize, Sequelize);
+db.Province = require("./Province")(sequelize, Sequelize);
+db.City = require("./City")(sequelize, Sequelize);
+db.Subdistrict = require("./Subdistrict")(sequelize, Sequelize);
+
+// Join Address for get user
+db.AddressUser.belongsTo(db.User, {
+  foreignKey: "user_id",
+});
+
+db.AddressUser.belongsTo(db.Province, {
+  foreignKey: "province_id",
+  targetKey: "id",
+});
+
+db.AddressUser.belongsTo(db.City, {
+  foreignKey: "city_id",
+  targetKey: "id",
+});
+
+db.AddressUser.belongsTo(db.Subdistrict, {
+  foreignKey: "subdistrict_id",
+  targetKey: "id",
+});
+
 module.exports = db;

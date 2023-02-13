@@ -107,7 +107,6 @@ module.exports = async (req, res) => {
         if (exists) {
           return res.status(200).json({
             status: "success",
-            message: "get from redis",
             data: {
               page: page,
               limit: limit,
@@ -125,7 +124,6 @@ module.exports = async (req, res) => {
           );
           return res.status(200).json({
             status: "success",
-            message: "store to redis",
             data: {
               page: page,
               limit: limit,
