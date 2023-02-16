@@ -43,7 +43,7 @@ module.exports = {
         allowNull: false,
       },
       address_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: true,
       },
       dob: {

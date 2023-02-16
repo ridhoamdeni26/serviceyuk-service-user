@@ -1,4 +1,4 @@
-const { User, Sequelize } = require("../../../models");
+const { User, Sequelize, AddressUser } = require("../../../models");
 const Op = Sequelize.Op;
 const redis = require("redis");
 
@@ -92,6 +92,12 @@ module.exports = async (req, res) => {
 
     const users = await User.findAll({
       attributes: sqlOptions,
+      include: [
+        {
+          model: AddressUser,
+          attributes: ["id", "type_address", "address"],
+        },
+      ],
       where: queryInside,
       offset: offset,
       limit: limit,

@@ -54,6 +54,10 @@ db.Subdistrict = require("./Subdistrict")(sequelize, Sequelize);
 db.AddressUser.belongsTo(db.User, {
   foreignKey: "user_id",
 });
+db.User.belongsTo(db.AddressUser, {
+  foreignKey: "address_id",
+  targetKey: "id",
+});
 
 db.AddressUser.belongsTo(db.Province, {
   foreignKey: "province_id",

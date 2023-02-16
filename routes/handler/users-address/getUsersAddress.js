@@ -42,9 +42,6 @@ module.exports = async (req, res) => {
       "id",
       "type_address",
       "address",
-      "province_id",
-      "city_id",
-      "subdistrict_id",
       "postal_code",
       "active_address",
     ];
@@ -87,7 +84,7 @@ module.exports = async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["username", "email"],
+          attributes: ["id", "username", "email"],
         },
         {
           model: Province,

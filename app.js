@@ -9,6 +9,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const refreshTokensRouter = require("./routes/refreshTokens");
 const usersAddressRouter = require("./routes/users-address");
+const wilayahIndonesiaRouter = require("./routes/wilayah-indonesia");
 
 const app = express();
 
@@ -39,5 +40,6 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/refresh-tokens", refreshTokensRouter);
 app.use("/users-address", usersAddressRouter);
+app.use("/wilayah-indonesia", wilayahIndonesiaRouter);
 
 module.exports = app;

@@ -9,10 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         isUnique: true,
       },
-      province_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       name_province: {
         type: DataTypes.STRING,
         allowNull: false,
